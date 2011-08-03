@@ -1,5 +1,5 @@
 import unittest
-from . import HCTL, HCT
+from infi.dtypes.hctl import HCTL, HCT
 
 subject = HCTL(1, 0, 0, 1)
 
