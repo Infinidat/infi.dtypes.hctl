@@ -54,4 +54,7 @@ class HCTL(HCT):
     _TUPLE = namedtuple("HCTL", tuple("hctl"))
     def get_lun(self):
         return self._value.l
+    @classmethod
+    def from_hct_and_lun(cls, hct, lun):
+        return cls(hct.get_host(), hct.get_channel(), hct.get_target(), lun)
 

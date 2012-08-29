@@ -15,6 +15,9 @@ class HCTLTestCase(unittest.TestCase):
         self.assertNotEqual(subject, HCTL.from_string("1:0:0:2"))
         self.assertLessEqual(subject, HCTL.from_string("1:0:0:2"))
 
+    def test_from_hct_and_lun(self):
+        self.assertEqual(HCTL.from_hct_and_lun(HCT(1, 2, 3), 4), HCTL(1, 2, 3, 4))
+
     def test_opeators(self):
         self.assertEqual(subject, "1:0:0:1")
         self.assertFalse(subject == 123)
