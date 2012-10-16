@@ -35,7 +35,7 @@ class NamedTupleAddress(object):
             raise ValueError(s)
         return cls(*map(int, s.split(":")))
     def __repr__(self):
-        return "<{}>".format(self)
+        return "<{0}>".format(self)
     def __str__(self):
         return ":".join(map(str, self._value))
 
