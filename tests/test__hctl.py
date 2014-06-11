@@ -28,3 +28,4 @@ class HCTLTestCase(unittest.TestCase):
         self.assertRaises(ValueError, subject.from_string, None)
         self.assertEqual(repr(subject), "<1:0:0:1>")
         self.assertEqual(HCT(1, 0, 0)[1], subject)
+        self.assertEqual(HCT(1, 0, 0), HCT(1, 0, 0))

@@ -8,15 +8,15 @@ class NamedTupleAddress(object):
         super(NamedTupleAddress, self).__init__()
         self._value = self._TUPLE(*args, **kwargs) #pylint: disable-msg=E1102
     def __eq__(self, other):
-        if isinstance(other, HCTL):
+        if isinstance(other, type(self)):
             return self._value == other._value
         if isinstance(other, basestring):
-            return self == HCTL.from_string(other)
+            return self == type(self).from_string(other)
         return False
     def __ne__(self, other):
         return not (self == other)
     def __lt__(self, other):
-        if not isinstance(other, HCTL):
+        if not isinstance(other, type(self)):
             raise TypeError()
         return self._value < other._value
     def __le__(self, other):
