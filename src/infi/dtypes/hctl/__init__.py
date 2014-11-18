@@ -1,6 +1,10 @@
 __import__("pkg_resources").declare_namespace(__name__)
 
+import sys
 from collections import namedtuple
+
+PY2 = sys.version_info[0] == 2
+string_type = basestring if PY2 else str
 
 class NamedTupleAddress(object):
     _TUPLE = None
@@ -10,7 +14,7 @@ class NamedTupleAddress(object):
     def __eq__(self, other):
         if isinstance(other, type(self)):
             return self._value == other._value
-        if isinstance(other, basestring):
+        if isinstance(other, string_type):
             return self == type(self).from_string(other)
         return False
     def __ne__(self, other):
@@ -31,7 +35,7 @@ class NamedTupleAddress(object):
         return hash(str(self))
     @classmethod
     def from_string(cls, s):
-        if not isinstance(s, basestring):
+        if not isinstance(s, string_type):
             raise ValueError(s)
         return cls(*map(int, s.split(":")))
     def __repr__(self):
