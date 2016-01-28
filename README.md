@@ -5,26 +5,22 @@ Overview
 Usage
 =====
 HCTL:
-::
-  >>> from infi.dtypes.hctl import HCTL
-  >>> hctl = HCTL(1,0,0,1)
-  >>> hctl.get_host()
-  1
-  >>> hctl.get_channel()
-  0
-  >>> hctl.get_target()
-  0
-  >>> hctl.get_lun()
-  1
+
+    >>> from infi.dtypes.hctl import HCTL
+    >>> hctl = HCTL(1,0,0,1)
+    >>> hctl.get_host()
+    1
+    >>> hctl.get_channel()
+    0
+    >>> hctl.get_target()
+    0
+    >>> hctl.get_lun()
+    1
 
 Checking out the code
 =====================
 
-This project uses buildout and infi-projector, and git to generate setup.py and __version__.py.
-In order to generate these, first get infi-projector:
+To check out the code for development purposes, clone the git repository and run the following commands:
 
-    easy_install infi.projector
-
-    and then run in the project directory:
-
-        projector devenv build
+    easy_install -U infi.projector
+    projector devenv build
